@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>แปลงหน่วยความเร็ว — กม./ชม. ไมล์/ชม. เมตร/วินาที นอต มัค</title>
+<title>แปลงหน่วยความเร็ว | กม./ชม. ไมล์/ชม. เมตร/วินาที นอต มัค</title>
 <meta name="description" content="แปลงหน่วยความเร็วได้ทันที กม./ชม. ไมล์/ชม. เมตร/วินาที ฟุต/วินาที นอต และมัค กรอกช่องไหนก็ได้">
 <link rel="canonical" href="https://kamnuan.net/kamnuankhwamrew/">
-<meta property="og:title" content="แปลงหน่วยความเร็ว — กม./ชม. ไมล์/ชม. นอต มัค">
+<meta property="og:title" content="แปลงหน่วยความเร็ว | กม./ชม. ไมล์/ชม. นอต มัค">
 <meta property="og:description" content="แปลงหน่วยความเร็ว กม./ชม. ไมล์/ชม. เมตร/วินาที นอต มัค กรอกช่องไหนก็ได้">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kamnuan.net/kamnuankhwamrew/">
@@ -32,6 +32,15 @@ header{position:sticky;top:0;z-index:100;height:52px;display:flex;align-items:ce
 .logo-en{font-size:9px;font-weight:600;color:#96938C;letter-spacing:2px;}
 .back-btn{display:inline-flex;align-items:center;gap:4px;height:36px;padding:0 10px;border:1px solid var(--b0);border-radius:8px;background:#FFFFFF;font-family:'Sarabun',sans-serif;font-size:12px;font-weight:500;color:#52504C;text-decoration:none;white-space:nowrap;}
 .back-btn svg{width:13px;height:13px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.menu-wrap{position:relative;flex-shrink:0;}
+.menu-btn{width:36px;height:36px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1px solid var(--b0);border-radius:8px;background:#FFFFFF;cursor:pointer;padding:0;transition:transform .1s ease;}
+.menu-btn:active{transform:scale(.94);}
+.menu-btn svg{width:16px;height:16px;stroke:#52504C;stroke-width:2;stroke-linecap:round;}
+.menu-panel{position:absolute;top:44px;right:0;min-width:190px;background:#FFFFFF;border:1px solid var(--b0);border-radius:var(--r);box-shadow:0 8px 24px rgba(0,0,0,0.14);padding:6px;opacity:0;transform:scale(.96) translateY(-4px);transform-origin:top right;pointer-events:none;transition:opacity .15s ease,transform .15s ease;z-index:200;}
+.menu-panel.open{opacity:1;transform:scale(1) translateY(0);pointer-events:auto;}
+.menu-panel a{display:block;padding:11px 12px;border-radius:8px;font-family:'Sarabun',sans-serif;font-size:13px;color:#18181A;text-decoration:none;}
+.menu-panel a:active{background:#EFEFEC;}
+@media(hover:hover){.menu-panel a:hover{background:#EFEFEC;}}
 .page{width:100%;max-width:600px;margin:0 auto;padding:20px 16px 80px;}
 .page-hd{margin-bottom:20px;}
 .page-hd h1{font-family:'Noto Serif Thai',serif;font-size:clamp(20px,5vw,26px);font-weight:700;color:#18181A;line-height:1.2;}
@@ -39,16 +48,23 @@ header{position:sticky;top:0;z-index:100;height:52px;display:flex;align-items:ce
 .card{background:#FFFFFF;border:1px solid var(--b0);border-radius:var(--r-lg);overflow:hidden;margin-bottom:12px;width:100%;}
 .card-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--b0);background:#EFEFEC;}
 .card-head-title{font-size:14px;font-weight:600;color:#18181A;}
-.clear-btn{font-size:12px;color:#96938C;background:none;border:none;cursor:pointer;font-family:'Sarabun',sans-serif;}
+.clear-btn{font-size:12px;font-weight:600;color:#52504C;background:#FFFFFF;border:1px solid var(--b0);border-radius:8px;padding:6px 10px;cursor:pointer;font-family:'Sarabun',sans-serif;transition:transform .1s ease;}
+.clear-btn:active{transform:scale(.96);background:#F7F7F5;}
 .card-body{padding:16px;}
+.unit-group-label{font-size:12px;font-weight:700;color:#52504C;padding:14px 0 6px;}
+.unit-group-label:first-child{padding-top:0;}
 .unit-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--b0);}
 .unit-row:last-child{border-bottom:none;}
-.unit-lbl{font-size:14px;font-weight:600;color:#18181A;width:110px;flex-shrink:0;line-height:1.3;}
-.unit-sub{font-size:11px;color:#96938C;font-weight:400;display:block;}
+.unit-lbl{font-size:14px;color:#18181A;font-weight:500;width:90px;flex-shrink:0;line-height:1.3;}
+.unit-row.primary .unit-lbl{font-weight:600;}
+.unit-sub{font-size:11px;color:#96938C;display:block;}
 .unit-input{flex:1;min-width:0;height:44px;padding:0 12px;border:1px solid var(--b0);border-radius:var(--r);background:#FFFFFF;font-family:'Sarabun',sans-serif;font-size:16px;color:#18181A;outline:none;}
 .unit-input:focus{border-color:#18181A;}
-.info-table-wrap{margin-top:12px;background:#FFFFFF;border:1px solid var(--b0);border-radius:var(--r-lg);overflow:hidden;}
-.info-table-title{padding:10px 14px;font-size:12px;font-weight:600;color:#96938C;border-bottom:1px solid var(--b0);background:#EFEFEC;}
+@keyframes unitFlash{from{background:#EFEFEC;}to{background:#FFFFFF;}}
+.unit-input.flash{animation:unitFlash .6s ease;}
+@media(prefers-reduced-motion:reduce){.unit-input.flash{animation:none;}}
+.info-table-wrap{margin-top:16px;background:#FFFFFF;border:1px solid var(--b0);border-radius:var(--r-lg);overflow:hidden;}
+.info-table-title{padding:10px 14px;font-size:12px;font-weight:700;color:#52504C;border-bottom:1px solid var(--b0);background:#EFEFEC;}
 .info-table{width:100%;border-collapse:collapse;font-size:13px;}
 .info-table th{padding:8px 12px;text-align:left;font-size:11px;font-weight:600;color:#96938C;border-bottom:1px solid var(--b0);background:#EFEFEC;}
 .info-table td{padding:9px 12px;color:#52504C;border-bottom:1px solid var(--b0);}
@@ -63,12 +79,15 @@ header{position:sticky;top:0;z-index:100;height:52px;display:flex;align-items:ce
 .faq-a.open{max-height:300px;padding:14px;}
 .faq-a strong{color:#18181A;}
 .related-wrap{margin-top:28px;padding-top:24px;border-top:1px solid var(--b0);}
-.related-title{font-size:11px;font-weight:600;color:#96938C;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;}
-.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.related-card{display:flex;align-items:center;gap:10px;padding:12px;background:#FFFFFF;border:1px solid var(--b0);border-radius:var(--r);text-decoration:none;}
+.related-title{font-size:14px;font-weight:600;color:#18181A;margin-bottom:10px;}
+.related-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;}
+.related-card{display:flex;align-items:center;gap:10px;padding:12px;background:#FFFFFF;border:1px solid var(--b0);border-radius:var(--r);text-decoration:none;transition:transform .1s ease,border-color .15s ease;}
+.related-card:active{transform:scale(.97);}
+@media(hover:hover){.related-card:hover{border-color:var(--b1);}}
 .related-ico{width:32px;height:32px;border-radius:8px;background:#18181A;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .related-ico svg{width:15px;height:15px;stroke:#FFFFFF;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
-.related-name{font-size:13px;font-weight:500;color:#18181A;}
+.related-name{font-size:13px;font-weight:500;color:#18181A;flex:1;min-width:0;}
+.related-arrow{width:13px;height:13px;stroke:#96938C;stroke-width:2;fill:none;flex-shrink:0;}
 footer{border-top:1px solid var(--b0);padding:20px 16px;text-align:center;font-size:12px;color:#96938C;line-height:2;}
 footer a{color:#96938C;text-decoration:none;}
 </style>
@@ -91,6 +110,17 @@ footer a{color:#96938C;text-decoration:none;}
     <div class="logo-t"><span class="logo-th">คำนวณ</span><span class="logo-en">KAMNUAN</span></div>
   </a>
   <a class="back-btn" href="/"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>เครื่องมือทั้งหมด</a>
+  <div class="menu-wrap">
+    <button class="menu-btn" id="menuBtn" aria-haspopup="true" aria-expanded="false" aria-label="เมนู" onclick="toggleMenu(event)" type="button">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="menu-panel" id="menuPanel" role="menu">
+      <a href="/about.html" role="menuitem">เกี่ยวกับเรา</a>
+      <a href="/privacy.html" role="menuitem">นโยบายความเป็นส่วนตัว</a>
+      <a href="/terms.html" role="menuitem">เงื่อนไข</a>
+      <a href="/contact.html" role="menuitem">ติดต่อ</a>
+    </div>
+  </div>
 </header>
 
 <div class="page">
@@ -105,12 +135,14 @@ footer a{color:#96938C;text-decoration:none;}
       <button class="clear-btn" onclick="clearAll()" type="button">ล้างทั้งหมด</button>
     </div>
     <div class="card-body">
-      <div class="unit-row"><span class="unit-lbl">กม./ชั่วโมง<span class="unit-sub">km/h</span></span><input class="unit-input" id="f-kmh" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('kmh')"></div>
-      <div class="unit-row"><span class="unit-lbl">ไมล์/ชั่วโมง<span class="unit-sub">mph</span></span><input class="unit-input" id="f-mph" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('mph')"></div>
-      <div class="unit-row"><span class="unit-lbl">เมตร/วินาที<span class="unit-sub">m/s</span></span><input class="unit-input" id="f-ms" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('ms')"></div>
-      <div class="unit-row"><span class="unit-lbl">ฟุต/วินาที<span class="unit-sub">ft/s</span></span><input class="unit-input" id="f-fts" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('fts')"></div>
-      <div class="unit-row"><span class="unit-lbl">นอต<span class="unit-sub">knot</span></span><input class="unit-input" id="f-knot" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('knot')"></div>
-      <div class="unit-row"><span class="unit-lbl">มัค<span class="unit-sub">Mach</span></span><input class="unit-input" id="f-mach" type="number" placeholder="0" min="0" inputmode="decimal" oninput="convert('mach')"></div>
+      <div class="unit-group-label">หน่วยที่ใช้บ่อย</div>
+      <div class="unit-row primary"><label class="unit-lbl" for="f-kmh">กม./ชั่วโมง<span class="unit-sub">km/h</span></label><input class="unit-input" id="f-kmh" type="number" placeholder="0" min="0" inputmode="decimal" aria-live="polite" aria-atomic="true" oninput="convert('kmh')"></div>
+      <div class="unit-row primary"><label class="unit-lbl" for="f-mph">ไมล์/ชั่วโมง<span class="unit-sub">mph</span></label><input class="unit-input" id="f-mph" type="number" placeholder="0" min="0" inputmode="decimal" aria-live="polite" aria-atomic="true" oninput="convert('mph')"></div>
+      <div class="unit-row primary"><label class="unit-lbl" for="f-ms">เมตร/วินาที<span class="unit-sub">m/s</span></label><input class="unit-input" id="f-ms" type="number" placeholder="0" min="0" inputmode="decimal" aria-live="polite" aria-atomic="true" oninput="convert('ms')"></div>
+      <div class="unit-group-label">หน่วยเฉพาะทาง</div>
+      <div class="unit-row"><label class="unit-lbl" for="f-fts">ฟุต/วินาที<span class="unit-sub">ft/s</span></label><input class="unit-input" id="f-fts" type="number" placeholder="0" min="0" inputmode="decimal" aria-live="polite" aria-atomic="true" oninput="convert('fts')"></div>
+      <div class="unit-row"><label class="unit-lbl" for="f-knot">นอต<span class="unit-sub">knot</span></label><input class="unit-input" id="f-knot" type="number" placeholder="0" min="0" inputmode="decimal" aria-live="polite" aria-atomic="true" oninput="convert('knot')"></div>
+      <div class="unit-row"><label class="unit-lbl" for="f-mach">มัค<span class="unit-sub">Mach</span></label><input class="unit-input" id="f-mach" type="number" placeholder="0" min="0" inputmode="decimal" aria-live="polite" aria-atomic="true" oninput="convert('mach')"></div>
     </div>
   </div>
 
@@ -151,39 +183,71 @@ footer a{color:#96938C;text-decoration:none;}
   <div class="related-wrap">
     <div class="related-title">เครื่องมือที่เกี่ยวข้อง</div>
     <div class="related-grid">
-      <a class="related-card" href="/kamnuankhwamyao/"><div class="related-ico"><svg viewBox="0 0 24 24"><path d="M5 9l-3 3 3 3"/><path d="M19 9l3 3-3 3"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div><span class="related-name">แปลงหน่วยความยาว</span></a>
-      <a class="related-card" href="/kamnuanpressure/"><div class="related-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><span class="related-name">แปลงหน่วยความดัน</span></a>
-      <a class="related-card" href="/kamnuanunhaphum/"><div class="related-ico"><svg viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div><span class="related-name">แปลงหน่วยอุณหภูมิ</span></a>
-      <a class="related-card" href="/kamnuannamnak/"><div class="related-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="12" y1="8" x2="12" y2="16"/></svg></div><span class="related-name">แปลงหน่วยน้ำหนัก</span></a>
+      <a class="related-card" href="/kamnuankhwamyao/"><div class="related-ico"><svg viewBox="0 0 24 24"><path d="M5 9l-3 3 3 3"/><path d="M19 9l3 3-3 3"/><line x1="2" y1="12" x2="22" y2="12"/></svg></div><span class="related-name">แปลงหน่วยความยาว</span><svg class="related-arrow" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      <a class="related-card" href="/kamnuanpressure/"><div class="related-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><span class="related-name">แปลงหน่วยความดัน</span><svg class="related-arrow" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      <a class="related-card" href="/kamnuanunhaphum/"><div class="related-ico"><svg viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></div><span class="related-name">แปลงหน่วยอุณหภูมิ</span><svg class="related-arrow" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
+      <a class="related-card" href="/kamnuannamnak/"><div class="related-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="12" y1="8" x2="12" y2="16"/></svg></div><span class="related-name">แปลงหน่วยน้ำหนัก</span><svg class="related-arrow" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></a>
     </div>
   </div>
 </div>
 
-<footer role="contentinfo">
-  <p>© 2569 คำนวณ · <a href="/">หน้าหลัก</a> · <a href="/about.html">เกี่ยวกับเรา</a> · <a href="/privacy.html">นโยบายความเป็นส่วนตัว</a> · <a href="/terms.html">เงื่อนไข</a> · <a href="/contact.html">ติดต่อ</a></p>
-</footer>
+<footer role="contentinfo"><p>© 2569 คำนวณ</p></footer>
 
 <script>
 function toggleFaq(btn){const e=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!e));btn.nextElementSibling.classList.toggle('open',!e);}
 
+function toggleMenu(e){
+  e.stopPropagation();
+  const panel=document.getElementById('menuPanel');
+  const btn=document.getElementById('menuBtn');
+  const open=panel.classList.toggle('open');
+  btn.setAttribute('aria-expanded',String(open));
+}
+document.addEventListener('click',function(e){
+  const panel=document.getElementById('menuPanel');
+  const btn=document.getElementById('menuBtn');
+  if(panel.classList.contains('open') && !panel.contains(e.target) && e.target!==btn){
+    panel.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  }
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    const panel=document.getElementById('menuPanel');
+    if(panel.classList.contains('open')){
+      panel.classList.remove('open');
+      document.getElementById('menuBtn').setAttribute('aria-expanded','false');
+    }
+  }
+});
+
 const TO_KMH={kmh:1,mph:1.60934,ms:3.6,fts:1.09728,knot:1.852,mach:1225.044};
 const UNITS=Object.keys(TO_KMH);
+let converted=false;
 
 function fmt(n){
   if(n===0) return '0';
-  if(n>=10000) return parseFloat(n.toFixed(2)).toString();
-  if(n>=100) return parseFloat(n.toFixed(4)).toString();
-  if(n>=1) return parseFloat(n.toFixed(6)).toString();
-  return parseFloat(n.toFixed(8)).toString();
+  const abs=Math.abs(n);
+  if(abs>=1) return parseFloat(n.toFixed(2)).toString();
+  if(abs>=0.01) return parseFloat(n.toFixed(4)).toString();
+  return parseFloat(n.toFixed(6)).toString();
 }
 
 function convert(src){
   const val=parseFloat(document.getElementById('f-'+src).value);
-  if(isNaN(val)||val<0){clearAll();return;}
+  if(isNaN(val)||val<0){
+    UNITS.forEach(u=>{if(u!==src) document.getElementById('f-'+u).value='';});
+    return;
+  }
+  if(!converted){converted=true;gtag('event','convert_used',{tool_name:'kamnuankhwamrew'});}
   const base=val*TO_KMH[src];
   UNITS.forEach(u=>{
     if(u===src) return;
-    document.getElementById('f-'+u).value=fmt(base/TO_KMH[u]);
+    const el=document.getElementById('f-'+u);
+    el.value=fmt(base/TO_KMH[u]);
+    el.classList.remove('flash');
+    void el.offsetWidth;
+    el.classList.add('flash');
   });
 }
 
